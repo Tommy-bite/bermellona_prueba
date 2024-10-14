@@ -1,0 +1,84 @@
+<div mat-dialog-content class="flex flex-col items-center justify-between bg-white p-10 rounded w-full">
+    <button type="button"
+        class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+        (click)="closeDialog()">
+        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+        </svg>
+    </button>
+
+    <div class="flex flex-col items-center mb-1">
+        <img src="/logo.png" alt="Logo" class="w-12 h-12 rounded-full mb-1" />
+        <h3 class="text-3xl uppercase font-medium text-purple-700 tracking-wide">
+            Regístrate para comprar
+        </h3>
+    </div>
+
+    <form [formGroup]="formRegister" (ngSubmit)="register()">
+        <div class="mb-3">
+            <label for="nombre" class="block text-sm font-medium text-gray-900">Nombre</label>
+            <input id="nombre" formControlName="nombre" type="text" class="block w-full p-2.5 rounded-lg border"
+                placeholder="Escriba su nombre" />
+            <p *ngIf="
+          formRegister.get('nombre')?.hasError('required') &&
+          formRegister.get('nombre')?.touched
+        " class="text-red-600">
+                El nombre es requerido
+            </p>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="block text-sm font-medium text-gray-900">Ingrese su correo</label>
+            <input id="email" formControlName="email" type="email" class="block w-full p-2.5 rounded-lg border"
+                placeholder="Correo Electrónico" />
+            <p *ngIf="
+          formRegister.get('email')?.hasError('required') &&
+          formRegister.get('email')?.touched
+        " class="text-red-600">
+                El correo es requerido
+            </p>
+            <p *ngIf="
+          formRegister.get('email')?.hasError('email') &&
+          formRegister.get('email')?.touched
+        " class="text-red-600">
+                Ingrese un correo válido
+            </p>
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="block text-sm font-medium text-gray-900">Contraseña</label>
+            <input id="password" formControlName="password" type="password" class="block w-full p-2.5 rounded-lg border"
+                placeholder="Contraseña" />
+            <p *ngIf="
+          formRegister.get('password')?.hasError('required') &&
+          formRegister.get('password')?.touched
+        " class="text-red-600">
+                La contraseña es requerida
+            </p>
+        </div>
+
+        <div class="mb-3">
+            <label for="confirmPassword" class="block text-sm font-medium text-gray-900">Repetir Contraseña</label>
+            <input id="confirmPassword" formControlName="confirmPassword" type="password"
+                class="block w-full p-2.5 rounded-lg border" placeholder="Repetir Contraseña" />
+            <p *ngIf="
+          formRegister.get('confirmPassword')?.hasError('required') &&
+          formRegister.get('confirmPassword')?.touched
+        " class="text-red-600">
+                Debe confirmar la contraseña
+            </p>
+        </div>
+
+        <div class="flex items-start mb-3">
+            <input id="terms" formControlName="terms" type="checkbox" class="mr-2" />
+            <label for="terms" class="text-sm font-medium text-gray-900">
+                Estoy de acuerdo con
+                <a href="#" class="text-blue-600 hover:underline">términos y condiciones</a>
+            </label>
+        </div>
+
+        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 w-full py-2.5 rounded-lg">
+            Registrar nueva cuenta
+        </button>
+    </form>
+</div>
