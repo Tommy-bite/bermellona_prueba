@@ -17,8 +17,8 @@
 
     <form [formGroup]="formRegister" (ngSubmit)="register()">
         <div class="mb-3">
-            <label for="nombre" class="block text-sm font-medium text-gray-900">Nombre</label>
-            <input id="nombre" formControlName="nombre" type="text" class="block w-full p-2.5 rounded-lg border"
+            <label for="first_name" class="block text-sm font-medium text-gray-900">Nombre</label>
+            <input id="first_name" formControlName="first_name" type="text" class="block w-full p-2.5 rounded-lg border"
                 placeholder="Escriba su nombre" />
             <p *ngIf="
           formRegister.get('nombre')?.hasError('required') &&
@@ -59,18 +59,18 @@
 
         <div class="mb-3">
             <label for="confirmPassword" class="block text-sm font-medium text-gray-900">Repetir Contraseña</label>
-            <input id="confirmPassword" formControlName="confirmPassword" type="password"
+            <input id="confirmPassword"  type="password"
                 class="block w-full p-2.5 rounded-lg border" placeholder="Repetir Contraseña" />
-            <p *ngIf="
+            <!-- <p *ngIf="
           formRegister.get('confirmPassword')?.hasError('required') &&
           formRegister.get('confirmPassword')?.touched
         " class="text-red-600">
                 Debe confirmar la contraseña
-            </p>
+            </p> -->
         </div>
 
         <div class="flex items-start mb-3">
-            <input id="terms" formControlName="terms" type="checkbox" class="mr-2" />
+            <input id="terms"  type="checkbox" class="mr-2" />
             <label for="terms" class="text-sm font-medium text-gray-900">
                 Estoy de acuerdo con
                 <a href="#" class="text-blue-600 hover:underline">términos y condiciones</a>

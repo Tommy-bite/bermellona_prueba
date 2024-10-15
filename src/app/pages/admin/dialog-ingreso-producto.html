@@ -1,0 +1,67 @@
+<h2 mat-dialog-title *ngIf="!isEditMode" class="bg-primary text-white">Añadir Nuevo producto</h2>
+<h2 mat-dialog-title   *ngIf="isEditMode" class="bg-warning text-black">Editar Producto</h2>
+
+
+<form (ngSubmit)="guardarProducto()" [formGroup]="formIngreso" enctype="multipart/form-data">
+  <mat-dialog-content class="mat-typography">
+    <div class="row">
+      <div class="col-12"> 
+        <label class="mat-subtitle-2 f-w-600 d-block">Nombre <span class="text-danger">*</span></label>
+        <input
+          placeholder="Nombre producto"
+          formControlName="nombre"
+          name="nombre"
+          type="text"
+          class="form-control"
+        />
+        <mat-error *ngIf="formIngreso.get('nombre')?.hasError('required') && formIngreso.get('nombre')?.touched">
+          Se requiere el nombre 
+        </mat-error>
+      </div>
+      
+      <div class="col-12"> 
+        <label class="mat-subtitle-2 f-w-600 d-block">Imagen <span class="text-danger">*</span></label>
+        <input
+        formControlName="imagen"
+        name="imagen"
+        type="file"
+        class="form-control"
+        id="fileInput"  
+      />
+        <mat-error *ngIf="formIngreso.get('imagen')?.hasError('required') && formIngreso.get('imagen')?.touched">
+          Se requiere la imagen
+        </mat-error>
+      </div>
+      
+      <div class="col-12"> 
+        <label class="mat-subtitle-2 f-w-600 d-block">Precio <span class="text-danger">*</span></label>
+        <input
+          placeholder="Precio"
+          formControlName="precio"
+          name="precio"
+          type="number"
+          class="form-control"
+        />
+        <mat-error *ngIf="formIngreso.get('precio')?.hasError('required') && formIngreso.get('precio')?.touched">
+          Se requiere el precio
+        </mat-error>
+      </div>
+      
+      <div class="col-12"> 
+        <label class="mat-subtitle-2 f-w-600 d-block">Descripción</label>
+        <textarea 
+          rows="10"
+          placeholder="Descripcion breve del producto.."
+          formControlName="descripcion"
+          name="descripcion"
+          class="form-control">
+        </textarea>
+      </div>
+    </div>
+  </mat-dialog-content>
+  
+  <mat-dialog-actions align="center">
+    <button *ngIf="!isEditMode" type="submit" class="btn btn-success" >Crear Producto</button>
+    <button *ngIf="isEditMode" type="submit" class="btn btn-warning" >Guardar Cambios</button>
+  </mat-dialog-actions>
+</form>

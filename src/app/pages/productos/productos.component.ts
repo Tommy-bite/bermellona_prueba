@@ -3,11 +3,14 @@ import { ProductosService } from '../../services/productos.service';
 import { Producto } from '../../interface/producto';
 import { CommonModule } from '@angular/common';
 import { MonedaChilenaPipe } from '../../pipes/moneda-chilena.pipe';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-productos',
   standalone: true,
-  imports: [CommonModule, MonedaChilenaPipe],
+  imports: [CommonModule, MonedaChilenaPipe, MonedaChilenaPipe, MatCardModule, MatGridListModule, MatInputModule],
   templateUrl: './productos.component.html',
   styleUrl: './productos.component.scss'
 })

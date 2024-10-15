@@ -1,11 +1,11 @@
 <section class="text-gray-600 body-font">
-  <div class="container px-5 py-24 mx-auto">
+  <div class="container  py-24 mx-auto">
     <!-- 5 columnas en pantallas grandes -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
       <!-- Producto 6 -->
       <div *ngFor="let producto of productos" class="relative bg-white p-4 rounded-lg shadow-md">
         <a class="block h-65 rounded overflow-hidden">
-          <img [src]="producto.imagen" alt="image6" class="object-cover object-center w-full h-full block">
+          <img [src]="producto.imagen"  alt="image6" class="object-cover object-center w-full h-full block">
         </a>
         <div class="mt-2 text-center">
           <p class="text-gray-500 text-xs tracking-widest title-font mb-1">{{obtenerNombreCategoria(producto.categoria)}}</p>
